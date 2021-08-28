@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_pedo/torre.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level_alc/player_alc.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player_alc" parent="." instance=ExtResource( 2 )]
+position = Vector2( 842.877, 324.909 )
+
+[node name="torre" parent="." instance=ExtResource( 1 )]
+position = Vector2( 318.785, 330.703 )
