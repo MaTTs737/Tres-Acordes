@@ -19,7 +19,4 @@ func get_hurt():
 
 func pickup():
 	pass
-	
-func _ready():
-	life = maxLife
 
