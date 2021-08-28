@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://levels/level_zombi/level_zombis_policia.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_zombi/adriel_zombi.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/pngs/elementos/mira_pistola.png" type="Texture" id=3]
+[ext_resource path="res://assets/pngs/escenario/casa_zombi.png" type="Texture" id=4]
+[ext_resource path="res://levels/level_zombi/adrielSpawner.gd" type="Script" id=5]
+[ext_resource path="res://assets/pngs/escenario/ventanas_zombi.png" type="Texture" id=6]
+[ext_resource path="res://assets/audio/disparo_1.mp3" type="AudioStream" id=7]
+
+[node name="level_zombi_policia" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="casa_zombi" type="Sprite" parent="."]
+position = Vector2( 510.934, 380.627 )
+scale = Vector2( 1.00375, 0.978218 )
+texture = ExtResource( 4 )
+
+[node name="ventanas_zombi" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 468.316, 306.078 )
+scale = Vector2( 1.00795, 0.971614 )
+texture = ExtResource( 6 )
+
+[node name="mira_pistola" type="Area2D" parent="."]
+position = Vector2( 135.222, 445.677 )
+
+[node name="Sprite" type="Sprite" parent="mira_pistola"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mira_pistola"]
+
+[node name="adrielSpawner" type="Node2D" parent="."]
+show_behind_parent = true
+position = Vector2( 2.37842, -2.37842 )
+script = ExtResource( 5 )
+
+[node name="reserva" type="Position2D" parent="adrielSpawner"]
+position = Vector2( -201.298, 305.125 )
+
+[node name="adriel_zombi" parent="adrielSpawner" instance=ExtResource( 2 )]
+show_behind_parent = true
+position = Vector2( 1202.81, -132.589 )
+
+[node name="adriel_pos" type="Node2D" parent="adrielSpawner"]
+position = Vector2( -2.37842, 2.37842 )
+
+[node name="Position2D" type="Position2D" parent="adrielSpawner/adriel_pos"]
+position = Vector2( 465.581, 446.153 )
+
+[node name="Position2D8" type="Position2D" parent="adrielSpawner/adriel_pos"]
+position = Vector2( 685.581, 444.153 )
+
+[node name="Position2D2" type="Position2D" parent="adrielSpawner/adriel_pos"]
+position = Vector2( 238.642, 447.142 )
+
+[node name="Position2D3" type="Position2D" parent="adrielSpawner/adriel_pos"]
+position = Vector2( 242.977, 180.895 )
+
+[node name="Position2D4" type="Position2D" parent="adrielSpawner/adriel_pos"]
+position = Vector2( 457.931, 185.376 )
+
+[node name="Position2D5" type="Position2D" parent="adrielSpawner/adriel_pos"]
+position = Vector2( 687.362, 178.381 )
+
+[node name="Position2D6" type="Position2D" parent="adrielSpawner/adriel_pos"]
+position = Vector2( 899.041, 176.003 )
+
+[node name="Position2D7" type="Position2D" parent="adrielSpawner/adriel_pos"]
+position = Vector2( 901.852, 442.674 )
+
+[node name="spawnTimer" type="Timer" parent="adrielSpawner"]
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer"]
+
+[connection signal="area_entered" from="adrielSpawner/adriel_zombi" to="." method="_on_adriel_zombi_area_entered"]
+[connection signal="timeout" from="adrielSpawner/spawnTimer" to="adrielSpawner" method="_on_spawnTimer_timeout"]
+[connection signal="timeout" from="AudioStreamPlayer/Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_ruta/ruta_spr.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/ruta_fondo.png" type="Texture" id=2]
+
+[node name="stage" type="Node"]
+
+[node name="ruta" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ruta"]
+rotation = 4.71239
+scale = Vector2( 0.508, 0.508 )
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 1 )
+velocity = Vector2( 0, 1000 )
+
+[node name="Sprite2" type="Sprite" parent="ruta"]
+position = Vector2( -1.01784e-13, 899.802 )
+rotation = 4.71239
+scale = Vector2( 0.508, 0.508 )
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 1 )
+velocity = Vector2( 0, 1000 )

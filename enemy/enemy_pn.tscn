@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://enemy/enemy_pn.gd" type="Script" id=1]
+[ext_resource path="res://assets/pngs/enemies/papa_noel.png" type="Texture" id=2]
+[ext_resource path="res://overlap/HurtBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://overlap/HitBox.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 47.8115
+height = 22.265
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.4, 0.4 ), Vector2( 0.2, 0.2 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 132.25
+
+[node name="enemy_pn" type="KinematicBody2D"]
+position = Vector2( 498.903, 359.923 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 150
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.508667, 1.61023 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="moveTimer" type="Timer" parent="."]
+
+[node name="attackTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 2 )
+
+[node name="HitBox" parent="." instance=ExtResource( 4 )]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 3 )
+disabled = true
+
+[node name="HurtBox" parent="." instance=ExtResource( 3 )]
+collision_layer = 16
+collision_mask = 2
+
+[connection signal="timeout" from="moveTimer" to="." method="_on_moveTimer_timeout"]
+[connection signal="timeout" from="attackTimer" to="." method="_on_attackTimer_timeout"]
+
+[editable path="HitBox"]

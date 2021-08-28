@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/enemy_swapy.gd" type="Script" id=2]
+[ext_resource path="res://assets/pngs/auto/auto_rosa.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 56 )
+
+[node name="enemy_swapy" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+velocity = Vector2( 0, 100 )
+armor = 1
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -1, 0 )
+shape = SubResource( 1 )
+
+[node name="switchTimer" type="Timer" parent="." index="2"]
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_enemy_swapy_area_entered"]
+[connection signal="timeout" from="switchTimer" to="." method="_on_switchTimer_timeout"]

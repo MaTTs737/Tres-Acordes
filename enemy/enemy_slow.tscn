@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/enemy_slow.gd" type="Script" id=2]
+[ext_resource path="res://assets/pngs/auto/auto_verde.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.7315, 57.5951 )
+
+[node name="enemy_slow" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+velocity = Vector2( 0, 100 )
+armor = 1
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -0.181766, -1.66718 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_enemy_slow_area_entered"]

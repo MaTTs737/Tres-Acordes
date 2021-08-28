@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="HitBox" type="Area2D"]
+position = Vector2( 0, 0.420448 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

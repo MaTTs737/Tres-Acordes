@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://HUD/menu.gd" type="Script" id=1]
+
+[node name="menu" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.264177
+margin_top = -3.69066
+margin_right = 0.26416
+margin_bottom = -3.69067
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -138.0
+margin_top = 181.0
+margin_right = 143.0
+margin_bottom = -198.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+margin_right = 281.0
+margin_bottom = 381.0
+size_flags_stretch_ratio = 2.0
+custom_constants/separation = 20
+
+[node name="startButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+margin_right = 281.0
+margin_bottom = 20.0
+size_flags_stretch_ratio = 2.0
+action_mode = 0
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tiendaButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 281.0
+margin_bottom = 60.0
+text = "TIENDA"
+
+[node name="levelsButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 281.0
+margin_bottom = 100.0
+size_flags_stretch_ratio = 2.0
+text = "LEVELS"
+
+[node name="rutaButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 80.0
+margin_right = 281.0
+margin_bottom = 100.0
+grow_vertical = 2
+size_flags_stretch_ratio = 2.0
+text = "RUTA"
+
+[node name="schoolButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 120.0
+margin_right = 281.0
+margin_bottom = 140.0
+grow_vertical = 2
+size_flags_stretch_ratio = 2.0
+text = "ESCUELA"
+
+[node name="alcButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 160.0
+margin_right = 281.0
+margin_bottom = 180.0
+grow_vertical = 2
+size_flags_stretch_ratio = 2.0
+text = "ALCANTARILLAS"
+
+[node name="jumpButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 200.0
+margin_right = 281.0
+margin_bottom = 220.0
+grow_vertical = 2
+size_flags_stretch_ratio = 2.0
+text = "ENEMIGO"
+
+[node name="pnButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 240.0
+margin_right = 281.0
+margin_bottom = 260.0
+text = "PAPA NOEL"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+anchor_left = 0.98
+anchor_top = 0.5
+anchor_right = 0.98
+anchor_bottom = 0.5
+margin_left = -190.52
+margin_top = -17.0
+margin_right = -0.52002
+margin_bottom = 22.0
+
+[node name="cadButton" type="Button" parent="Control/MarginContainer2"]
+visible = false
+margin_right = 190.0
+margin_bottom = 39.0
+text = "bonuslevel cadillac"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/startButton" to="." method="_on_startButton_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/tiendaButton" to="." method="_on_tiendaButton_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/levelsButton" to="." method="_on_levelsButton_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/rutaButton" to="." method="_on_rutaButton_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/schoolButton" to="." method="_on_schoolButton_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/alcButton" to="." method="_on_alcButton_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/jumpButton" to="." method="_on_jumpButton_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/pnButton" to="." method="_on_pnButton_pressed"]

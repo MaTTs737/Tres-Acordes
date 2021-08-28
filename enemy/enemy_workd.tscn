@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://enemy/enemy_workd.gd" type="Script" id=1]
+[ext_resource path="res://enemy/ballShooter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/pngs/enemies/papa_noel.png" type="Texture" id=3]
+[ext_resource path="res://assets/pngs/enemies/mascara_cuadro.png" type="Texture" id=4]
+[ext_resource path="res://assets/pngs/enemies/puntero_cuadro.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 58.2276
+
+[sub_resource type="Animation" id=2]
+resource_name = "chupar"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -3.0, 3.0, -1.0, 1.0, -3.0, 3.0, -2.0, 2.0, -1.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.117647 ) ]
+}
+
+[node name="enemy_workd" type="Node2D"]
+position = Vector2( 457.922, 137.198 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+damage = 5
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2.37842 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ballShooter" parent="." instance=ExtResource( 2 )]
+position = Vector2( 12.9335, -4.94291 )
+
+[node name="puntero" type="Area2D" parent="."]
+position = Vector2( 6.09061, 522.215 )
+collision_layer = 8
+collision_mask = 4
+
+[node name="Sprite2" type="Sprite" parent="puntero"]
+position = Vector2( -0.66748, -47.3868 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="puntero"]
+visible = false
+position = Vector2( 2.36664, -39.1946 )
+rotation = 0.0174533
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="puntero"]
+position = Vector2( -1.33481, -48.0543 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="puntero"]
+anims/chupar = SubResource( 2 )
+
+[connection signal="body_entered" from="puntero" to="." method="_on_puntero_body_entered"]

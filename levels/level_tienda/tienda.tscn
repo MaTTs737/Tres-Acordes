@@ -1,0 +1,260 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://levels/level_tienda/tienda.gd" type="Script" id=1]
+[ext_resource path="res://assets/gem_spawn.png" type="Texture" id=2]
+[ext_resource path="res://assets/pngs/pickables/tuca/tuca-right.png" type="Texture" id=3]
+[ext_resource path="res://assets/pngs/auto/auto_rosa.png" type="Texture" id=4]
+[ext_resource path="res://assets/pngs/pickables/tuca/tuca sheet.png" type="Texture" id=5]
+
+[node name="tienda" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.13525
+margin_top = -2.37842
+margin_right = 7.13525
+margin_bottom = -2.37842
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="objCost" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -360.0
+margin_top = 50.0
+margin_right = -68.0
+margin_bottom = 114.0
+size_flags_stretch_ratio = 1.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinIcon" type="TextureRect" parent="objCost"]
+margin_right = 69.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="costLab" type="Label" parent="objCost"]
+margin_left = 73.0
+margin_right = 212.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 2.0
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="buyBut" type="Button" parent="objCost"]
+margin_left = 216.0
+margin_right = 292.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+text = "COMPRAR"
+
+[node name="objView" type="MarginContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 100.0
+margin_top = -202.0
+margin_right = -100.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="objView"]
+margin_right = 824.0
+margin_bottom = 442.0
+
+[node name="objList" type="VBoxContainer" parent="objView/HBoxContainer"]
+margin_right = 824.0
+margin_bottom = 442.0
+size_flags_horizontal = 3
+
+[node name="cadBut" type="Button" parent="objView/HBoxContainer/objList"]
+margin_right = 824.0
+margin_bottom = 144.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "cadillac"
+
+[node name="TextureRect" type="TextureRect" parent="objView/HBoxContainer/objList/cadBut"]
+margin_left = 117.04
+margin_top = 3.7755
+margin_right = 182.04
+margin_bottom = 128.775
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="objView/HBoxContainer/objList/cadBut"]
+margin_left = 656.937
+margin_top = 1.88774
+margin_right = 721.937
+margin_bottom = 126.888
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cochBut" type="Button" parent="objView/HBoxContainer/objList"]
+margin_top = 148.0
+margin_right = 824.0
+margin_bottom = 293.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "coch"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TextureRect" type="TextureRect" parent="objView/HBoxContainer/objList/cochBut"]
+margin_left = 94.9879
+margin_top = 34.6989
+margin_right = 247.988
+margin_bottom = 112.699
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="objView/HBoxContainer/objList/cochBut"]
+margin_left = 590.928
+margin_top = 36.1971
+margin_right = 743.928
+margin_bottom = 114.197
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tucaBut" type="Button" parent="objView/HBoxContainer/objList"]
+margin_top = 297.0
+margin_right = 824.0
+margin_bottom = 442.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "tuca"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TextureRect" type="TextureRect" parent="objView/HBoxContainer/objList/tucaBut"]
+margin_left = 145.458
+margin_top = 43.4712
+margin_right = 201.458
+margin_bottom = 108.471
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="objView/HBoxContainer/objList/tucaBut"]
+margin_left = 641.397
+margin_top = 43.4712
+margin_right = 697.397
+margin_bottom = 108.471
+texture = ExtResource( 3 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.992
+anchor_top = 1.0
+anchor_right = 0.992
+anchor_bottom = 1.0
+margin_left = -1006.22
+margin_top = -711.369
+margin_right = -906.224
+margin_bottom = -691.369
+text = "salir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_top = -120.0
+margin_right = -150.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playerData" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 724.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinIcon" type="TextureRect" parent="MarginContainer/playerData"]
+margin_right = 101.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource( 2 )
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="coinCountLab" type="Label" parent="MarginContainer/playerData"]
+margin_left = 105.0
+margin_right = 360.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+valign = 1
+
+[node name="tucaIcon" type="TextureRect" parent="MarginContainer/playerData"]
+margin_left = 364.0
+margin_right = 465.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+texture = ExtResource( 3 )
+expand = true
+
+[node name="tucaCountLab" type="Label" parent="MarginContainer/playerData"]
+margin_left = 469.0
+margin_right = 724.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+valign = 1
+
+[connection signal="pressed" from="objCost/buyBut" to="." method="_on_buyBut_pressed"]
+[connection signal="pressed" from="objView/HBoxContainer/objList/cadBut" to="." method="_on_cadBut_pressed"]
+[connection signal="pressed" from="objView/HBoxContainer/objList/cochBut" to="." method="_on_cochBut_pressed"]
+[connection signal="pressed" from="objView/HBoxContainer/objList/tucaBut" to="." method="_on_tucaBut_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://levels/level_babies/level_babies.gd" type="Script" id=2]
+[ext_resource path="res://levels/level_babies/paleta.gd" type="Script" id=3]
+[ext_resource path="res://assets/pngs/escenario/pantalla_libre.png" type="Texture" id=4]
+[ext_resource path="res://assets/pngs/personajes/PALETA.png" type="Texture" id=5]
+[ext_resource path="res://assets/pngs/escenario/pantalla.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 106.403, 144.509 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, 0.0 ]
+}
+
+[node name="level_babies" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="fondo" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.523146, 0.571764 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="startTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="pantalla" type="Sprite" parent="."]
+position = Vector2( 1.7818, -1.7818 )
+scale = Vector2( 0.526888, 0.573814 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="spawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="paleta" type="Area2D" parent="YSort"]
+visible = false
+position = Vector2( 1114.56, 325.255 )
+scale = Vector2( 0.374102, 0.356013 )
+script = ExtResource( 3 )
+
+[node name="col" type="CollisionShape2D" parent="YSort/paleta"]
+position = Vector2( -5.70313, -298.61 )
+rotation = 0.261799
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="YSort/paleta"]
+position = Vector2( -17.7051, -197.174 )
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/paleta"]
+anims/hit = SubResource( 2 )
+
+[node name="game" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="game"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 435.0
+margin_bottom = 123.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="game/Control"]
+margin_left = 412.085
+margin_top = 683.718
+margin_right = 662.085
+margin_bottom = 712.718
+text = "start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="startTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="spawnTimer" to="." method="_on_spawnTimer_timeout"]
+[connection signal="body_entered" from="YSort/paleta" to="YSort/paleta" method="_on_paleta_body_entered"]
+[connection signal="pressed" from="game/Control/Button" to="." method="_on_Button_pressed"]

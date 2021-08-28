@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/enemy_fast.gd" type="Script" id=2]
+[ext_resource path="res://assets/pngs/auto/auto_azul.png" type="Texture" id=3]
+[ext_resource path="res://effects/dust.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 116.435, 285.971 )
+
+[node name="enemy_fast" instance=ExtResource( 1 )]
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 2 )
+velocity = Vector2( 0, 250 )
+armor = 1
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 10, 10 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 1.98425, 11.7762 )
+shape = SubResource( 1 )
+
+[node name="dust" parent="." index="2" instance=ExtResource( 4 )]
+show_behind_parent = true
+position = Vector2( -121.055, 271.558 )
+amount = 13
+
+[node name="dust2" parent="." index="3" instance=ExtResource( 4 )]
+show_behind_parent = true
+position = Vector2( 108.372, 262.37 )
+
+[node name="dust3" parent="." index="4" instance=ExtResource( 4 )]
+show_behind_parent = true
+position = Vector2( -109.424, -254.319 )
+
+[node name="dust4" parent="." index="5" instance=ExtResource( 4 )]
+show_behind_parent = true
+position = Vector2( 108.726, -249.878 )
+
+[connection signal="area_entered" from="." to="." method="_on_enemy_fast_area_entered"]

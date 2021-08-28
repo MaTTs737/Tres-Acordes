@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://enemy/enemy_espejo.gd" type="Script" id=1]
+[ext_resource path="res://assets/pngs/enemies/espejo_rotura.png" type="Texture" id=2]
+[ext_resource path="res://assets/pngs/enemies/espejo.png" type="Texture" id=3]
+[ext_resource path="res://overlap/HurtBox.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "destroy"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../enemy_espejo/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../enemy_espejo/Sprite2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 132.514, 177.449 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 26.8001, 16.9889 )
+
+[node name="enemy_espejo" type="Area2D"]
+position = Vector2( -3.05176e-05, 0 )
+scale = Vector2( 0.3, 0.3 )
+input_pickable = false
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+maxLife = 3
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.473541, 3.05176e-05 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/destroy = SubResource( 1 )
+anims/hit = SubResource( 2 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 4 )]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+modulate = Color( 0.584314, 0.196078, 0.196078, 1 )
+self_modulate = Color( 0.733333, 0.0588235, 0.0588235, 1 )
+position = Vector2( 3.7756, -3.8147e-06 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.88782, -6.10352e-05 )
+shape = SubResource( 4 )
+disabled = true
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+
+[editable path="HurtBox"]
