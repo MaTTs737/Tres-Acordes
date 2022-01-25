@@ -15,3 +15,4 @@ func aparecer(pos):
 
 func ocultar():
 	$Sprite.hide()
+	Utils._get_main_node().get_node("hijos_de_puta").play()

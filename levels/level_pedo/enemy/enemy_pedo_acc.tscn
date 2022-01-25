@@ -1,0 +1,218 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://levels/level_pedo/assets/png/efecto acido sheet.png" type="Texture" id=1]
+[ext_resource path="res://levels/level_pedo/assets/png/jaique_acc_sheet_act.png" type="Texture" id=2]
+[ext_resource path="res://overlap/HurtBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/level_pedo/assets/Audios/efecto acido.mp3" type="AudioStream" id=4]
+[ext_resource path="res://levels/level_pedo/enemy/enemy_pedo_acc.gd" type="Script" id=5]
+[ext_resource path="res://levels/level_pedo/assets/png/aura_boss_2_sheet.png" type="Texture" id=6]
+[ext_resource path="res://levels/level_pedo/enemy/buffArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/level_pedo/assets/png/jaique_acc_sheet_n.png" type="Texture" id=8]
+[ext_resource path="res://levels/level_pedo/assets/png/jaique_acc_sheet_f.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 623, 815 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 6 )
+region = Rect2( 623, 0, 623, 815 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 6 )
+region = Rect2( 1246, 0, 623, 815 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 12.4864
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 14.9289
+height = 37.3555
+
+[sub_resource type="Animation" id=7]
+resource_name = "got_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 218, 291 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 8 )
+region = Rect2( 218, 0, 218, 291 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 218, 291 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 218, 0, 218, 291 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 218, 292 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 9 )
+region = Rect2( 218, 0, 218, 292 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="enemy_pedo_acc" type="KinematicBody2D"]
+position = Vector2( -1.7818, -1.78177 )
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 5 )
+
+[node name="aura_saiya" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 1.89563, -28.5007 )
+scale = Vector2( 0.159181, 0.120707 )
+frames = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.97506, 0.707108 )
+shape = SubResource( 5 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 3 )]
+collision_layer = 16
+collision_mask = 2
+script = null
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( 1.8693, -25.9481 )
+shape = SubResource( 6 )
+
+[node name="speedTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="effectTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="accTimer" type="Timer" parent="."]
+
+[node name="shieldTimer" type="Timer" parent="."]
+
+[node name="lifeRed" type="ColorRect" parent="."]
+visible = false
+margin_left = -18.1136
+margin_top = -70.7227
+margin_right = 21.8864
+margin_bottom = -67.7227
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lifeGreen" type="ColorRect" parent="."]
+visible = false
+margin_left = -17.8162
+margin_top = -71.2488
+margin_right = 22.1838
+margin_bottom = -68.2488
+color = Color( 0.168627, 0.992157, 0.0235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/got_hit = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 3.24889, -29.6029 )
+scale = Vector2( 0.334044, 0.343209 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="efecto_daño" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -8.0
+
+[node name="buffArea" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1.87289, 1.12373 )
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="normal" type="AnimatedSprite" parent="sprites"]
+position = Vector2( 6.78569, -24.292 )
+scale = Vector2( 0.249, 0.249 )
+frames = SubResource( 10 )
+playing = true
+
+[node name="acc" type="AnimatedSprite" parent="sprites"]
+visible = false
+position = Vector2( 7.03335, -24.4399 )
+scale = Vector2( 0.249, 0.249 )
+frames = SubResource( 13 )
+playing = true
+
+[node name="frozen" type="AnimatedSprite" parent="sprites"]
+visible = false
+position = Vector2( 6.70487, -24.449 )
+scale = Vector2( 0.249, 0.249 )
+frames = SubResource( 16 )
+playing = true
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="speedTimer" to="." method="_on_speedTimer_timeout"]
+[connection signal="timeout" from="effectTimer" to="." method="_on_effectTimer_timeout"]
+[connection signal="timeout" from="accTimer" to="." method="_on_accTimer_timeout"]
+
+[editable path="HurtBox"]

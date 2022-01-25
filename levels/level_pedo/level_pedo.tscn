@@ -1,0 +1,499 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://levels/level_pedo/enemy/enemy_pedo_1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level_pedo/HUD/interfaz.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/level_pedo/enemy/enemySpawner.gd" type="Script" id=3]
+[ext_resource path="res://levels/level_pedo/level_pedo.gd" type="Script" id=4]
+[ext_resource path="res://levels/level_pedo/Camera2D.gd" type="Script" id=5]
+[ext_resource path="res://levels/level_pedo/torres/areaTorre.gd" type="Script" id=6]
+[ext_resource path="res://levels/level_pedo/assets/cutscene.webm" type="VideoStream" id=7]
+[ext_resource path="res://assets/pngs/elementos/coin.png" type="Texture" id=8]
+[ext_resource path="res://levels/level_pedo/assets/delete_spr.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/level_pedo/assets/png/fondo_version1.png" type="Texture" id=10]
+[ext_resource path="res://levels/level_pedo/assets/Audios/primer oleada.mp3" type="AudioStream" id=11]
+[ext_resource path="res://levels/level_pedo/assets/Audios/hijo_de_puta.mp3" type="AudioStream" id=12]
+[ext_resource path="res://levels/level_pedo/assets/Audios/segunda oleada.mp3" type="AudioStream" id=13]
+[ext_resource path="res://levels/level_pedo/HUD/normTowerBut.gd" type="Script" id=14]
+[ext_resource path="res://levels/level_pedo/HUD/iceTowerBut.gd" type="Script" id=15]
+[ext_resource path="res://levels/level_pedo/HUD/hardTowerBut.gd" type="Script" id=16]
+[ext_resource path="res://levels/level_pedo/assets/png/pantalla_negra.png" type="Texture" id=17]
+[ext_resource path="res://assets/font/EmilysCandy-Regular.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://levels/level_pedo/putter.gd" type="Script" id=19]
+[ext_resource path="res://HUD/winLoseHandler.tscn" type="PackedScene" id=20]
+[ext_resource path="res://levels/level_pedo/HUD/bombTowerBut.gd" type="Script" id=21]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 18 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.83334
+
+[sub_resource type="Animation" id=3]
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cameraplay/instrucciones:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.1, 5.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 49.5915, 252.754 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 48.5684, 287.346 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 52.2311, 247.683 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 45.9859, 269.268 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 55.817, 300.984 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 73.3704, 146.566 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 127.613, 51.2136 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 121.956, 85.1545 )
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 4.33114
+
+[sub_resource type="Curve2D" id=13]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 23.6874, 391.625, 0, 0, 0, 0, 307.632, 392.224, 0, 0, 0, 0, 306.247, 69.9729, 0, 0, 0, 0, 525.502, 72.3019, 0, 0, 0, 0, 526.379, 394.068, 0, 0, 0, 0, 526.508, 461.456, 0, 0, 0, 0, 532.822, 701.841, 0, 0, 0, 0, 748.943, 701.841, 0, 0, 0, 0, 774.041, 71.7263, 0, 0, 0, 0, 972.036, 78.6506, 0, 0, 0, 0, 980.402, 697.687, 0, 0, 0, 0, 1195.13, 701.841, 0, 0, 0, 0, 1199.31, 86.9599, 0, 0, 0, 0, 1423.8, 80.0355, 0, 0, 0, 0, 1433.39, 420.773, 0, 0, 0, 0, 1605.65, 444.404 )
+}
+
+[sub_resource type="Curve2D" id=14]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 23.6874, 391.625, 0, 0, 0, 0, 307.632, 392.224, 0, 0, 0, 0, 306.247, 69.9729, 0, 0, 0, 0, 525.502, 72.3019, 0, 0, 0, 0, 526.379, 394.068, 0, 0, 0, 0, 532.822, 701.841, 0, 0, 0, 0, 748.943, 701.841, 0, 0, 0, 0, 774.041, 71.7263, 0, 0, 0, 0, 972.036, 78.6506, 0, 0, 0, 0, 980.402, 697.687, 0, 0, 0, 0, 1195.13, 701.841, 0, 0, 0, 0, 1199.31, 86.9599, 0, 0, 0, 0, 1423.8, 80.0355, 0, 0, 0, 0, 1418.02, 387.855, 0, 0, 0, 0, 1568.34, 417.218 )
+}
+
+[node name="level_torres" type="Node2D"]
+z_index = -1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 397.941 ],
+"_edit_vertical_guides_": [ 150.721, 689.264 ]
+}
+coins = 120
+player_life = 150
+
+[node name="interfaz" parent="." instance=ExtResource( 2 )]
+
+[node name="fondo_version1" parent="interfaz" index="0"]
+visible = false
+
+[node name="Control" parent="interfaz/HUD" index="0"]
+margin_bottom = -686.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="interfaz/HUD/Control/MarginContainer/HBox1" index="0"]
+margin_right = 242.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sprite" type="Sprite" parent="interfaz/HUD/Control/MarginContainer/HBox1/HBoxContainer2"]
+position = Vector2( 27.7496, 21.0224 )
+texture = ExtResource( 8 )
+
+[node name="coinCount" type="Label" parent="interfaz/HUD/Control/MarginContainer/HBox1/HBoxContainer2"]
+margin_right = 242.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+valign = 1
+
+[node name="Hbox2" parent="interfaz/HUD/Control/MarginContainer/HBox1" index="1"]
+margin_left = 246.0
+margin_right = 730.0
+
+[node name="lifeRect" parent="interfaz/HUD/Control/MarginContainer/HBox1/Hbox2" index="0"]
+margin_right = 484.0
+
+[node name="Hbox3" parent="interfaz/HUD/Control/MarginContainer/HBox1" index="2"]
+margin_left = 734.0
+margin_right = 879.0
+
+[node name="scoreCountLabel" parent="interfaz/HUD/Control/MarginContainer/HBox1/Hbox3" index="1"]
+margin_right = 145.0
+
+[node name="HBoxContainer" parent="interfaz/HUD/Control/MarginContainer/HBox1" index="3"]
+margin_left = 883.0
+
+[node name="Control" parent="interfaz" index="2"]
+anchor_top = 0.843
+anchor_right = 0.463
+margin_top = 0.319946
+margin_right = -0.11203
+
+[node name="VBoxContainer" parent="interfaz/Control/MarginContainer" index="0"]
+margin_right = 439.0
+
+[node name="HBoxContainer2" parent="interfaz/Control/MarginContainer/VBoxContainer" index="0"]
+margin_right = 439.0
+
+[node name="hardCost" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer2" index="2"]
+margin_right = 261.0
+
+[node name="bombCost" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer2" index="3"]
+margin_left = 265.0
+margin_right = 350.0
+
+[node name="Label4" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer2" index="4"]
+margin_left = 354.0
+margin_right = 439.0
+
+[node name="HBoxContainer" parent="interfaz/Control/MarginContainer/VBoxContainer" index="1"]
+margin_right = 439.0
+
+[node name="normTowerBut" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 69.0
+script = ExtResource( 14 )
+
+[node name="iceTowerBut" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 73.0
+margin_right = 143.0
+script = ExtResource( 15 )
+
+[node name="hardTowerBut" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer" index="2"]
+margin_left = 147.0
+margin_right = 217.0
+script = ExtResource( 16 )
+
+[node name="bombTowerBut" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer" index="3"]
+margin_left = 221.0
+margin_right = 291.0
+script = ExtResource( 21 )
+
+[node name="deleteButton" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer" index="4"]
+margin_left = 295.0
+margin_right = 365.0
+
+[node name="upgradeButton" parent="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer" index="5"]
+margin_left = 369.0
+margin_right = 439.0
+
+[node name="Control2" type="Control" parent="interfaz"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 480.0
+margin_top = -101.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="interfaz/Control2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="interfaz/Control2/MarginContainer"]
+margin_right = 544.0
+margin_bottom = 101.0
+
+[node name="waveLab" type="Label" parent="interfaz/Control2/MarginContainer/HBoxContainer"]
+margin_right = 177.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "OLEADA"
+align = 1
+valign = 1
+
+[node name="waveCountLab" type="Label" parent="interfaz/Control2/MarginContainer/HBoxContainer"]
+margin_left = 181.0
+margin_right = 269.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="interfaz/Control2/MarginContainer/HBoxContainer/waveCountLab"]
+autostart = true
+
+[node name="nextWaveLab" type="Label" parent="interfaz/Control2/MarginContainer/HBoxContainer"]
+margin_left = 273.0
+margin_right = 451.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "PRÓXIMA OLEADA:"
+align = 1
+valign = 1
+
+[node name="waveTimeLeft" type="Label" parent="interfaz/Control2/MarginContainer/HBoxContainer"]
+margin_left = 455.0
+margin_right = 544.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+align = 1
+valign = 1
+uppercase = true
+
+[node name="TimerTL" type="Timer" parent="interfaz/Control2/MarginContainer/HBoxContainer/waveTimeLeft"]
+autostart = true
+
+[node name="fondo_version1" type="Sprite" parent="."]
+position = Vector2( 864.865, 356.166 )
+rotation = -1.56222
+scale = Vector2( 2.54855, 2.4847 )
+texture = ExtResource( 10 )
+
+[node name="Cameraplay" type="Camera2D" parent="."]
+current = true
+limit_left = 1
+limit_top = 1
+limit_right = 1700
+limit_bottom = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="instrucciones" type="Sprite" parent="Cameraplay"]
+visible = false
+position = Vector2( -10.9484, 19.3702 )
+texture = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="Cameraplay/instrucciones"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -713.5
+margin_top = -391.5
+margin_right = -52.5
+margin_bottom = -22.5
+custom_fonts/font = SubResource( 1 )
+text = "Usa las torres para evitar
+ que jaique se tire un pedo
+ en el medio de la entrevista de trabajo.
+
+- MOVE LA CAMARA 
+CON LAS FLECHITAS -"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cameracutscene" type="Camera2D" parent="."]
+position = Vector2( -1943.85, 646.162 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Cameracutscene"]
+margin_left = -504.0
+margin_top = -377.0
+margin_right = 509.0
+margin_bottom = 379.0
+stream = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deleter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deleter"]
+shape = SubResource( 2 )
+disabled = true
+
+[node name="delete_spr" parent="deleter" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( -1.84844, 1.75799 )
+scale = Vector2( 0.557929, 0.566566 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "presentacion"
+anims/presentacion = SubResource( 3 )
+
+[node name="putTowerAreas" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="putTowerAreas"]
+collision_mask = 64
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D"]
+position = Vector2( 425.72, 397.968 )
+shape = SubResource( 4 )
+
+[node name="Area2D6" type="Area2D" parent="putTowerAreas"]
+collision_mask = 64
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D6"]
+position = Vector2( 1103.19, 371.034 )
+shape = SubResource( 5 )
+
+[node name="Area2D7" type="Area2D" parent="putTowerAreas"]
+collision_mask = 64
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D7"]
+position = Vector2( 1326.31, 371.755 )
+shape = SubResource( 6 )
+
+[node name="Area2D8" type="Area2D" parent="putTowerAreas"]
+collision_mask = 64
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D8"]
+position = Vector2( 884.031, 392.9 )
+shape = SubResource( 7 )
+
+[node name="Area2D9" type="Area2D" parent="putTowerAreas"]
+collision_mask = 64
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D9"]
+position = Vector2( 657.096, 332.159 )
+shape = SubResource( 8 )
+
+[node name="Area2D2" type="Area2D" parent="putTowerAreas"]
+position = Vector2( 1566.74, 269.638 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D2"]
+position = Vector2( 8.81287, -49.4095 )
+shape = SubResource( 9 )
+
+[node name="Area2D4" type="Area2D" parent="putTowerAreas"]
+position = Vector2( 1534.42, 521.382 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D4"]
+position = Vector2( -2.37842, 4.75684 )
+shape = SubResource( 10 )
+
+[node name="Area2D5" type="Area2D" parent="putTowerAreas"]
+position = Vector2( 1534.42, 521.382 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D5"]
+position = Vector2( -1374.17, -23.5276 )
+shape = SubResource( 10 )
+
+[node name="Area2D10" type="Area2D" parent="putTowerAreas"]
+position = Vector2( 1534.42, 521.382 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putTowerAreas/Area2D10"]
+position = Vector2( -1396.79, -280.914 )
+shape = SubResource( 11 )
+
+[node name="putter" type="Area2D" parent="."]
+position = Vector2( 27.0545, -6.54064 )
+collision_layer = 64
+script = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="putter"]
+shape = SubResource( 12 )
+
+[node name="winLoseHandler" parent="." instance=ExtResource( 20 )]
+
+[node name="enemySpawner" type="Node2D" parent="."]
+position = Vector2( 7, 0 )
+script = ExtResource( 3 )
+
+[node name="enemy_pedo_1" parent="enemySpawner" instance=ExtResource( 1 )]
+position = Vector2( -7.10048, -14.9739 )
+script = null
+
+[node name="enemy_pedo_2" parent="enemySpawner" instance=ExtResource( 1 )]
+position = Vector2( -34.1005, -41.9739 )
+curve = SubResource( 13 )
+script = null
+
+[node name="enemy_pedo_3" parent="enemySpawner" instance=ExtResource( 1 )]
+position = Vector2( 23.8995, 10.9864 )
+curve = SubResource( 14 )
+script = null
+
+[node name="normalTimer" type="Timer" parent="enemySpawner"]
+wait_time = 0.5
+
+[node name="waveTimer" type="Timer" parent="enemySpawner"]
+wait_time = 10.0
+
+[node name="accTimer" type="Timer" parent="enemySpawner"]
+
+[node name="inviTimer" type="Timer" parent="enemySpawner"]
+wait_time = 1.5
+
+[node name="acorTimer" type="Timer" parent="enemySpawner"]
+wait_time = 5.0
+
+[node name="spreadTimer" type="Timer" parent="enemySpawner"]
+wait_time = 2.0
+
+[node name="hijo_de_puta" type="AudioStreamPlayer2D" parent="enemySpawner"]
+position = Vector2( -7, 0 )
+stream = ExtResource( 12 )
+
+[node name="primer_boss" type="AudioStreamPlayer2D" parent="enemySpawner"]
+position = Vector2( -7, 0 )
+stream = ExtResource( 11 )
+
+[node name="segundo_boss" type="AudioStreamPlayer2D" parent="enemySpawner"]
+position = Vector2( -7, 0 )
+stream = ExtResource( 13 )
+
+[node name="finish" type="Position2D" parent="."]
+position = Vector2( 1643.11, 402.272 )
+
+[connection signal="pressed" from="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer/normTowerBut" to="." method="_on_normTowerBut_pressed"]
+[connection signal="pressed" from="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer/iceTowerBut" to="." method="_on_iceTowerBut_pressed"]
+[connection signal="pressed" from="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer/hardTowerBut" to="." method="_on_hardTowerBut_pressed"]
+[connection signal="pressed" from="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer/bombTowerBut" to="." method="_on_bombTowerBut_pressed"]
+[connection signal="pressed" from="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer/deleteButton" to="." method="_on_deleteButton_pressed"]
+[connection signal="pressed" from="interfaz/Control/MarginContainer/VBoxContainer/HBoxContainer/upgradeButton" to="." method="_on_upgradeButton_pressed"]
+[connection signal="timeout" from="interfaz/Control2/MarginContainer/HBoxContainer/waveCountLab/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="interfaz/Control2/MarginContainer/HBoxContainer/waveTimeLeft/TimerTL" to="." method="_on_TimerTL_timeout"]
+[connection signal="area_entered" from="putTowerAreas/Area2D" to="putTowerAreas/Area2D" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="putTowerAreas/Area2D" to="putTowerAreas/Area2D" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="putTowerAreas/Area2D6" to="putTowerAreas/Area2D6" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="putTowerAreas/Area2D6" to="putTowerAreas/Area2D6" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="putTowerAreas/Area2D7" to="putTowerAreas/Area2D7" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="putTowerAreas/Area2D7" to="putTowerAreas/Area2D7" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="putTowerAreas/Area2D8" to="putTowerAreas/Area2D8" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="putTowerAreas/Area2D8" to="putTowerAreas/Area2D8" method="_on_Area2D_area_exited"]
+[connection signal="area_entered" from="putTowerAreas/Area2D9" to="putTowerAreas/Area2D9" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="putTowerAreas/Area2D9" to="putTowerAreas/Area2D9" method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="enemySpawner/normalTimer" to="enemySpawner" method="_on_normalTimer_timeout"]
+[connection signal="timeout" from="enemySpawner/waveTimer" to="enemySpawner" method="_on_waveTimer_timeout"]
+[connection signal="timeout" from="enemySpawner/accTimer" to="enemySpawner" method="_on_accTimer_timeout"]
+[connection signal="timeout" from="enemySpawner/inviTimer" to="enemySpawner" method="_on_inviTimer_timeout"]
+[connection signal="timeout" from="enemySpawner/acorTimer" to="enemySpawner" method="_on_acorTimer_timeout"]
+[connection signal="timeout" from="enemySpawner/spreadTimer" to="enemySpawner" method="_on_spreadTimer_timeout"]
+
+[editable path="interfaz"]
+[editable path="interfaz/HUD"]

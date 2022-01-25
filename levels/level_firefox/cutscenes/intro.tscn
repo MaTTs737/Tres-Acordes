@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_firefox/cutscenes/Intro.webm" type="VideoStream" id=1]
+[ext_resource path="res://levels/level_firefox/cutscenes/intro.gd" type="Script" id=2]
+
+[node name="intro_firefox" type="VideoPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level_name = "intro"

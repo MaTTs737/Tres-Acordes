@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://levels/level_zombi/level 3/level_zombi_policia_3.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_zombi/level 3/mira_pistola_linterna.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/level_zombi/level2/assets/Audio/Empty gun.mp3" type="AudioStream" id=3]
+[ext_resource path="res://levels/level_zombi/level 3/assets/Background/background_level zombi 3.png" type="Texture" id=4]
+[ext_resource path="res://levels/level_zombi/level 3/assets/Audio/Soundtrack/children-are-burying-the-doll.mp3" type="AudioStream" id=5]
+[ext_resource path="res://levels/level_zombi/level 3/revolver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HUD/winLoseHandler.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/level_zombi/level 3/assets/Animations/Camera_zombie_3.tscn" type="PackedScene" id=8]
+
+[node name="level_zombi_policia_3" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -15.6387, -82.0697, 759.996 ],
+"_edit_vertical_guides_": [ -607.123, 1645.24, -546.19, -588.905, -607.593 ]
+}
+
+[node name="fondo_level_zombi_2" type="Sprite" parent="."]
+position = Vector2( 517.969, 381.072 )
+scale = Vector2( 0.733706, 1.00087 )
+texture = ExtResource( 4 )
+
+[node name="Timer_reload" type="Timer" parent="."]
+
+[node name="mira_pistola_linterna" parent="." instance=ExtResource( 2 )]
+
+[node name="Light2D" parent="mira_pistola_linterna" index="1"]
+energy = 0.6
+
+[node name="empty_gun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+position = Vector2( 154.772, -51.5905 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Camera_zombie_3" parent="." instance=ExtResource( 8 )]
+
+[node name="ambient_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="Zedu_spawn" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="revolver" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1196.69, 581.235 )
+
+[node name="winLoseHandler" parent="." instance=ExtResource( 7 )]
+
+[connection signal="timeout" from="Zedu_spawn" to="." method="_on_Zedu_spawn_timeout"]
+[connection signal="area_entered" from="revolver" to="." method="_on_revolver_area_entered"]
+
+[editable path="mira_pistola_linterna"]

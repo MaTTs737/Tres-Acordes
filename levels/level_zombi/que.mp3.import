@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/que.mp3-5d6035cc60faf2c9fa1b89a21d460c26.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/que.mp3"
+dest_files=[ "res://.import/que.mp3-5d6035cc60faf2c9fa1b89a21d460c26.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

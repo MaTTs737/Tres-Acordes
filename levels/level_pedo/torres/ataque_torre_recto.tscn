@@ -1,0 +1,182 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://levels/level_pedo/torres/ataque_torre_recto.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_pedo/assets/png/burbuja acido.png" type="Texture" id=2]
+[ext_resource path="res://levels/level_pedo/assets/png/baston_shot_sheet.png" type="Texture" id=3]
+[ext_resource path="res://levels/level_pedo/assets/png/bolsa_hielo_sheet.png" type="Texture" id=4]
+[ext_resource path="res://levels/level_pedo/assets/png/pistola_sheet.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 5.03313
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 1809, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 1608, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 1407, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 1206, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 1005, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 804, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 603, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 402, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 201, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 201, 203 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 1407, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 1206, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 1005, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
+region = Rect2( 804, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 4 )
+region = Rect2( 603, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 4 )
+region = Rect2( 402, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 4 )
+region = Rect2( 201, 0, 201, 203 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 20.0
+} ]
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 5 )
+region = Rect2( 1407, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 5 )
+region = Rect2( 1206, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 5 )
+region = Rect2( 1005, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 5 )
+region = Rect2( 804, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 5 )
+region = Rect2( 603, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 5 )
+region = Rect2( 402, 0, 201, 203 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 5 )
+region = Rect2( 201, 0, 201, 203 )
+
+[sub_resource type="SpriteFrames" id=30]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[node name="ataque_torre_recto" type="Area2D" groups=[
+"proyectiles",
+]]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource( 1 )
+speed = 300
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.053021, -0.104166 )
+scale = Vector2( 0.0445591, 0.0426556 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="baston" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -0.0201993, 0.0171968 )
+scale = Vector2( 0.102971, 0.105104 )
+frames = SubResource( 12 )
+frame = 2
+playing = true
+
+[node name="hielo" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -0.0201993, 0.0171968 )
+scale = Vector2( 0.102971, 0.105104 )
+frames = SubResource( 21 )
+animation = "New Anim"
+frame = 4
+playing = true
+
+[node name="pistola" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0.137615, 0.185396 )
+scale = Vector2( 0.125635, 0.125569 )
+frames = SubResource( 30 )
+playing = true
+
+[connection signal="area_entered" from="." to="." method="_on_ataque_torre_recto_area_entered"]

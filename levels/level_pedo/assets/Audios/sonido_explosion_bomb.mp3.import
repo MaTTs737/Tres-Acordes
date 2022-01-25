@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sonido_explosion_bomb.mp3-b65064b914ea81d3407938517b689a9b.mp3str"
+
+[deps]
+
+source_file="res://levels/level_pedo/assets/Audios/sonido_explosion_bomb.mp3"
+dest_files=[ "res://.import/sonido_explosion_bomb.mp3-b65064b914ea81d3407938517b689a9b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

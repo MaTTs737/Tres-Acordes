@@ -1,0 +1,262 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levels/level_firefox/obstacles/pngs/obst1.png" type="Texture" id=1]
+[ext_resource path="res://levels/level_firefox/obstacles/pngs/obst2.png" type="Texture" id=2]
+[ext_resource path="res://levels/level_firefox/obstacles/pngs/obst4.png" type="Texture" id=3]
+[ext_resource path="res://levels/level_firefox/obstacles/obstaculos.gd" type="Script" id=4]
+[ext_resource path="res://levels/level_firefox/pickups/cocaine.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 65.3427, 50.8091 )
+
+[node name="obstaculos_4" type="Node2D"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 762.592 ],
+"_edit_vertical_guides_": [ 8022.19 ]
+}
+
+[node name="obst1" type="Area2D" parent="."]
+position = Vector2( 501.9, 584.66 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst1"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst1"]
+polygon = PoolVector2Array( -2.82635, 166.471, -436.649, 165.137, -421.966, 98.3947, -380.586, 8.9604, -327.192, -45.768, -225.745, -117.849, -89.5909, -161.899, 53.2369, -163.234, 188.056, -132.533, 296.178, -68.4603, 376.268, 12.9649, 416.313, 86.3811, 432.331, 169.141 )
+
+[node name="obst2" type="Area2D" parent="."]
+position = Vector2( 1294.36, 173.839 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst2"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst2"]
+polygon = PoolVector2Array( -2.82635, 166.471, -436.649, 165.137, -421.966, 98.3947, -380.586, 8.9604, -327.192, -45.768, -225.745, -117.849, -89.5909, -161.899, 53.2369, -163.234, 188.056, -132.533, 296.178, -68.4603, 376.268, 12.9649, 416.313, 86.3811, 432.331, 169.141 )
+
+[node name="obst3" type="Area2D" parent="."]
+position = Vector2( 2046.41, 586.905 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst3"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst3"]
+polygon = PoolVector2Array( -2.82635, 166.471, -436.649, 165.137, -421.966, 98.3947, -380.586, 8.9604, -327.192, -45.768, -225.745, -117.849, -89.5909, -161.899, 53.2369, -163.234, 188.056, -132.533, 296.178, -68.4603, 376.268, 12.9649, 416.313, 86.3811, 432.331, 169.141 )
+
+[node name="obst20" type="Area2D" parent="."]
+position = Vector2( 6835.88, 594.032 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst20"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst20"]
+polygon = PoolVector2Array( -2.82635, 166.471, -436.649, 165.137, -421.966, 98.3947, -380.586, 8.9604, -327.192, -45.768, -225.745, -117.849, -89.5909, -161.899, 53.2369, -163.234, 188.056, -132.533, 296.178, -68.4603, 376.268, 12.9649, 416.313, 86.3811, 432.331, 169.141 )
+
+[node name="obst4" type="Area2D" parent="."]
+position = Vector2( 2947.37, 176.359 )
+rotation = -3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst4"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst4"]
+polygon = PoolVector2Array( -2.82635, 166.471, -436.649, 165.137, -421.966, 98.3947, -380.586, 8.9604, -327.192, -45.768, -225.745, -117.849, -89.5909, -161.899, 53.2369, -163.234, 188.056, -132.533, 296.178, -68.4603, 376.268, 12.9649, 416.313, 86.3811, 432.331, 169.141 )
+
+[node name="obst5" type="Area2D" parent="."]
+position = Vector2( 2994.55, 712.753 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst5"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst5"]
+shape = SubResource( 1 )
+
+[node name="obst10" type="Area2D" parent="."]
+position = Vector2( 3244.01, 385.174 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst10"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst10"]
+shape = SubResource( 1 )
+
+[node name="obst11" type="Area2D" parent="."]
+position = Vector2( 3453.61, 385.032 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst11"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst11"]
+shape = SubResource( 1 )
+
+[node name="obst12" type="Area2D" parent="."]
+position = Vector2( 4033.59, 366.665 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst12"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst12"]
+shape = SubResource( 1 )
+
+[node name="obst6" type="Area2D" parent="."]
+position = Vector2( 3185.04, 712.753 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst6"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst6"]
+shape = SubResource( 1 )
+
+[node name="obst7" type="Area2D" parent="."]
+position = Vector2( 3382.1, 712.753 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst7"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst7"]
+shape = SubResource( 1 )
+
+[node name="obst8" type="Area2D" parent="."]
+position = Vector2( 3604.58, 712.753 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst8"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst8"]
+shape = SubResource( 1 )
+
+[node name="obst9" type="Area2D" parent="."]
+position = Vector2( 3814.36, 712.753 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst9"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst9"]
+shape = SubResource( 1 )
+
+[node name="obst13" type="Area2D" parent="."]
+position = Vector2( 4038.93, 699.246 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst13"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst13"]
+shape = SubResource( 1 )
+
+[node name="obst14" type="Area2D" parent="."]
+position = Vector2( 4380.9, 703.627 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst14"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst14"]
+shape = SubResource( 1 )
+
+[node name="obst15" type="Area2D" parent="."]
+position = Vector2( 4655.08, 696.865 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst15"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst15"]
+shape = SubResource( 1 )
+
+[node name="obst16" type="Area2D" parent="."]
+position = Vector2( 4659.43, 375.055 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst16"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst16"]
+shape = SubResource( 1 )
+
+[node name="obst17" type="Area2D" parent="."]
+position = Vector2( 4654.94, 51.786 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst17"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obst17"]
+shape = SubResource( 1 )
+
+[node name="obst18" type="Area2D" parent="."]
+position = Vector2( 5232.59, 384.666 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst18"]
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst18"]
+polygon = PoolVector2Array( 2.16403, 110.661, -75.3442, -6.04691, 10.1821, -108.5, 73.4359, -7.8287 )
+
+[node name="obst19" type="Area2D" parent="."]
+position = Vector2( 5845.7, 377.897 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="obst19"]
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obst19"]
+polygon = PoolVector2Array( 2.16403, 110.661, -75.3442, -6.04691, 10.1821, -108.5, 73.4359, -7.8287 )
+
+[node name="cocaine" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4972.37, 565.106 )

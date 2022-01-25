@@ -8,5 +8,5 @@ func create_hitEffect():
 	main.add_child(hitEffect)
 	hitEffect.global_position = global_position
 
-func _on_HurtBox_area_entered(area):
+func _on_HurtBox_area_entered(_area):
 	create_hitEffect()

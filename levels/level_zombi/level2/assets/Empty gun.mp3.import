@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Empty gun.mp3-6caed2a6db195bf130410bdba3d243fa.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level2/assets/Empty gun.mp3"
+dest_files=[ "res://.import/Empty gun.mp3-6caed2a6db195bf130410bdba3d243fa.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

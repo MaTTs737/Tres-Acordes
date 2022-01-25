@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_zombi/level 3/assets/Lights/light.png" type="Texture" id=1]
+[ext_resource path="res://levels/level_zombi/level 3/assets/Background/scary_adriel.png" type="Texture" id=2]
+
+[node name="scary_adriel" type="Sprite"]
+position = Vector2( 515.355, 415.304 )
+scale = Vector2( 0.717, 0.696 )
+texture = ExtResource( 2 )
+
+[node name="eyeball1" type="Light2D" parent="."]
+position = Vector2( -77.5039, -184.508 )
+scale = Vector2( 0.0910112, 0.0622019 )
+texture = ExtResource( 1 )
+color = Color( 0.941176, 0.0823529, 0.0823529, 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="eyeball2" type="Light2D" parent="."]
+position = Vector2( 11.7568, -179.479 )
+scale = Vector2( 0.0910112, 0.0622019 )
+texture = ExtResource( 1 )
+color = Color( 0.941176, 0.0823529, 0.0823529, 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="eyeball3" type="Light2D" parent="."]
+position = Vector2( 108.688, -77.8281 )
+scale = Vector2( 0.056961, 0.04326 )
+texture = ExtResource( 1 )
+color = Color( 0.941176, 0.0823529, 0.0823529, 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="eyeball4" type="Light2D" parent="."]
+position = Vector2( 138.675, -72.0811 )
+scale = Vector2( 0.056961, 0.04326 )
+texture = ExtResource( 1 )
+color = Color( 0.941176, 0.0823529, 0.0823529, 1 )
+__meta__ = {
+"_editor_description_": ""
+}

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tuca_throw.mp3-1e0906646ff86aabb5f0a293b4187b9c.mp3str"
+
+[deps]
+
+source_file="res://levels/level_tucas/assets/audios/tuca_throw.mp3"
+dest_files=[ "res://.import/tuca_throw.mp3-1e0906646ff86aabb5f0a293b4187b9c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

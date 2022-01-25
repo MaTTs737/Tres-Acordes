@@ -11,5 +11,5 @@ dest_files=[ "res://.import/disparo_1.mp3-d12cbcab0f97cfd6d2c907fc9230a921.mp3st
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

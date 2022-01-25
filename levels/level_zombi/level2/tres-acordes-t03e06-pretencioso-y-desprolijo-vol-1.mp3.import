@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tres-acordes-t03e06-pretencioso-y-desprolijo-vol-1.mp3-c2bfa5b4e8f60f8d4e62614c5abd0861.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level2/tres-acordes-t03e06-pretencioso-y-desprolijo-vol-1.mp3"
+dest_files=[ "res://.import/tres-acordes-t03e06-pretencioso-y-desprolijo-vol-1.mp3-c2bfa5b4e8f60f8d4e62614c5abd0861.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

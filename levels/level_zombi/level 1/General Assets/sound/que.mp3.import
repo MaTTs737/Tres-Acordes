@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/que.mp3-b3fe4ccd267a2c7186cbb965f424db07.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level 1/General Assets/sound/que.mp3"
+dest_files=[ "res://.import/que.mp3-b3fe4ccd267a2c7186cbb965f424db07.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

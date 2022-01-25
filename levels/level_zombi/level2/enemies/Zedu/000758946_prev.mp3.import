@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/000758946_prev.mp3-dec7e7d8524215e2c9b655069f343ce9.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level2/enemies/Zedu/000758946_prev.mp3"
+dest_files=[ "res://.import/000758946_prev.mp3-dec7e7d8524215e2c9b655069f343ce9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

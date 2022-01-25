@@ -1,0 +1,208 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://overlap/HurtBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level_pedo/enemy/enemy_pedo_invi.gd" type="Script" id=2]
+[ext_resource path="res://levels/level_pedo/assets/png/invi_sombra.png" type="Texture" id=3]
+[ext_resource path="res://levels/level_pedo/assets/png/efecto acido sheet.png" type="Texture" id=4]
+[ext_resource path="res://levels/level_pedo/assets/Audios/efecto acido.mp3" type="AudioStream" id=5]
+[ext_resource path="res://levels/level_pedo/enemy/buffArea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/level_pedo/assets/png/aura_boss_2_sheet.png" type="Texture" id=7]
+[ext_resource path="res://levels/level_pedo/assets/png/jaique_enemy_invi_n.png" type="Texture" id=8]
+[ext_resource path="res://levels/level_pedo/assets/png/jaique_enemy_invi_f.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 623, 815 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 7 )
+region = Rect2( 623, 0, 623, 815 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 7 )
+region = Rect2( 1246, 0, 623, 815 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 11.146
+height = 31.3134
+
+[sub_resource type="Animation" id=13]
+resource_name = "got_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 165, 284 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 8 )
+region = Rect2( 165, 0, 165, 284 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 181, 292 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 9 )
+region = Rect2( 181, 0, 181, 292 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="enemy_pedo_invi" type="KinematicBody2D"]
+script = ExtResource( 2 )
+drops = 75
+
+[node name="sombra" type="Sprite" parent="."]
+position = Vector2( 0.829174, 2.18341 )
+scale = Vector2( 0.347276, 0.446812 )
+texture = ExtResource( 3 )
+
+[node name="aura_saiya" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 1.89563, -28.5007 )
+scale = Vector2( 0.159181, 0.120707 )
+frames = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.303754, -3.2879 )
+shape = SubResource( 5 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 1 )]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( 0.165237, -21.2381 )
+shape = SubResource( 6 )
+
+[node name="inviTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="effectTimer" type="Timer" parent="."]
+
+[node name="lifeRed" type="ColorRect" parent="."]
+visible = false
+margin_left = -20.7387
+margin_top = -72.2499
+margin_right = 19.2613
+margin_bottom = -69.2499
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lifeGreen" type="ColorRect" parent="."]
+visible = false
+margin_left = -20.8196
+margin_top = -72.2499
+margin_right = 19.1804
+margin_bottom = -69.2499
+color = Color( 0.168627, 0.992157, 0.0235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/got_hit = SubResource( 13 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 3.24889, -29.6029 )
+scale = Vector2( 0.334044, 0.343209 )
+texture = ExtResource( 4 )
+hframes = 3
+
+[node name="efecto_daño" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.0
+
+[node name="buffArea" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0.222725, -3.11814 )
+
+[node name="shieldTimer" type="Timer" parent="."]
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="normal" type="AnimatedSprite" parent="sprites"]
+position = Vector2( -1.26134, -21.9765 )
+scale = Vector2( 0.209, 0.176851 )
+frames = SubResource( 9 )
+frame = 1
+playing = true
+
+[node name="frozen" type="AnimatedSprite" parent="sprites"]
+visible = false
+position = Vector2( -1.26134, -20.8852 )
+scale = Vector2( 0.209, 0.183618 )
+frames = SubResource( 12 )
+frame = 1
+playing = true
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="inviTimer" to="." method="_on_inviTimer_timeout"]
+[connection signal="timeout" from="effectTimer" to="." method="_on_effectTimer_timeout"]
+
+[editable path="HurtBox"]

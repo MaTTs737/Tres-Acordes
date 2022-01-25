@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Adriel_grito.mp3-6a33465dc4fa0ff3181e08f170848cc8.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level2/assets/Adriel_grito.mp3"
+dest_files=[ "res://.import/Adriel_grito.mp3-6a33465dc4fa0ff3181e08f170848cc8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

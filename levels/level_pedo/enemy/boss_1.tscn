@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://overlap/HurtBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level_pedo/assets/png/boss1_sheet.png" type="Texture" id=3]
+[ext_resource path="res://levels/level_pedo/enemy/boss_1.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 27.3077
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 33.654
+height = 98.8303
+
+[sub_resource type="Animation" id=3]
+resource_name = "attack"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawnSon"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "walk"
+length = 0.4
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/aura_boss_1.png-3fb40b9735b28e624e4349a240f5d561.stex"
+
+[node name="boss_1" type="KinematicBody2D" groups=[
+"enemies",
+]]
+position = Vector2( 2.11896, -48.7353 )
+scale = Vector2( 0.8, 0.8 )
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -9.43256, 6.99762 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="HurtBox" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1.68176, 3.36362 )
+collision_layer = 16
+collision_mask = 2
+script = null
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( -16.2461, 0.245911 )
+shape = SubResource( 2 )
+
+[node name="effectTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="lifeRed" type="ColorRect" parent="."]
+margin_left = -20.1153
+margin_top = -99.1357
+margin_right = 19.8847
+margin_bottom = -97.1357
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lifeGreen" type="ColorRect" parent="."]
+margin_left = -20.1153
+margin_top = -99.1357
+margin_right = 19.8847
+margin_bottom = -97.1357
+color = Color( 0.168627, 0.992157, 0.0235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 3 )
+anims/walk = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -19.0294, -11.5314 )
+scale = Vector2( 0.56887, 0.480778 )
+texture = SubResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0.840851, 1.68179 )
+texture = ExtResource( 3 )
+hframes = 8
+
+[node name="rageTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="effectTimer" to="." method="_on_effectTimer_timeout"]
+[connection signal="timeout" from="rageTimer" to="." method="_on_rageTimer_timeout"]
+
+[editable path="HurtBox"]

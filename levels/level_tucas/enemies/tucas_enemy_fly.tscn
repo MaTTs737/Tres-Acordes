@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://levels/level_tucas/assets/audios/tuca_throw.mp3" type="AudioStream" id=1]
+[ext_resource path="res://levels/level_tucas/assets/pngs/enemy_edu.png" type="Texture" id=2]
+[ext_resource path="res://levels/level_tucas/assets/pngs/Bat.png" type="Texture" id=3]
+[ext_resource path="res://levels/level_tucas/assets/pngs/EnemyDeathEffect.png" type="Texture" id=4]
+[ext_resource path="res://levels/level_tucas/enemies/tucas_enemy_fly.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 6.85048
+height = 1.63514
+
+[sub_resource type="Animation" id=9]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("deathSp:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("deathSp:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "tuca_throw"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 1 ]
+}
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 16, 24 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="tucas_enemy_fly" type="KinematicBody2D" groups=[
+"enemies",
+]]
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.03863, -14.6712 )
+scale = Vector2( 0.0736726, 0.0602975 )
+texture = ExtResource( 2 )
+flip_h = true
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.630211, -14.2185 )
+shape = SubResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/death = SubResource( 9 )
+anims/tuca_throw = SubResource( 10 )
+
+[node name="deathSp" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+hframes = 10
+
+[node name="startPos" type="Position2D" parent="."]
+
+[node name="endPos" type="Position2D" parent="."]
+position = Vector2( 144.217, 0.555 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.0974102, -11.4206 )
+scale = Vector2( 1.01419, 0.922615 )
+frames = SubResource( 11 )
+animation = "idle"
+frame = 3
+playing = true
+flip_h = true
