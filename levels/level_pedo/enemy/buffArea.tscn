@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://levels/level_pedo/enemy/buffArea.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 13.887
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 22.96
+flag_disable_z = true
+spread = 65.63
+gravity = Vector3( 0, 70, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+scale_random = 1.0
+color = Color( 0.12549, 0.976471, 0.0352941, 1 )
+
+[node name="buffArea" type="Area2D"]
+monitoring = false
+collision_layer = 128
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+visible = false
+position = Vector2( 0.33371, -51.0742 )
+process_material = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

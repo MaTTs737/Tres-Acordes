@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Taringa at nite.mp3-c40571b9ca903f883447e868147ae71a.mp3str"
+
+[deps]
+
+source_file="res://levels/level_firefox/Taringa at nite.mp3"
+dest_files=[ "res://.import/Taringa at nite.mp3-c40571b9ca903f883447e868147ae71a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

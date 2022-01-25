@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://levels/level_tucas/poweups/lifePowerUp.gd" type="Script" id=1]
+[ext_resource path="res://assets/heart.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 10.6343
+
+[node name="lifePowerUp" type="Area2D"]
+position = Vector2( 0.054924, -0.288322 )
+collision_layer = 32
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.320629, 0.550472 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.224072, 1.63839 )
+scale = Vector2( 0.314588, 0.329822 )
+texture = ExtResource( 2 )

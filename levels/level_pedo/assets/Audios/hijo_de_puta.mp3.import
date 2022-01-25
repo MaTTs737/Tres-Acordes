@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hijo_de_puta.mp3-632a390cc56477c2260881763d4053a2.mp3str"
+
+[deps]
+
+source_file="res://levels/level_pedo/assets/Audios/hijo_de_puta.mp3"
+dest_files=[ "res://.import/hijo_de_puta.mp3-632a390cc56477c2260881763d4053a2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

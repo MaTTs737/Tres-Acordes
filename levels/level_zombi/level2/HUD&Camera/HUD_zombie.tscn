@@ -1,0 +1,282 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/font/EmilysCandy-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://HUD/coinCountLabel.gd" type="Script" id=2]
+[ext_resource path="res://levels/level_zombi/level2/HUD&Camera/HUD_zombie.gd" type="Script" id=3]
+[ext_resource path="res://HUD/lifeCountLabel.gd" type="Script" id=4]
+[ext_resource path="res://assets/pngs/pickables/tuca/tuca-right.png" type="Texture" id=5]
+[ext_resource path="res://assets/pngs/elementos/coin.png" type="Texture" id=6]
+[ext_resource path="res://assets/Action RPG Resources/UI/HeartUIFull.png" type="Texture" id=7]
+[ext_resource path="res://levels/level_zombi/level2/enemies/Zadriel/Z_adriel.png" type="Texture" id=9]
+[ext_resource path="res://levels/level_zombi/level2/assets/image347.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[node name="HUD_zombie" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0561218
+margin_top = 0.0561218
+margin_right = 2.05615
+margin_bottom = -11.9438
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+margin_left = 9.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 49.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox1" type="HBoxContainer" parent="Control/MarginContainer"]
+margin_right = 1007.0
+margin_bottom = 39.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hbox2" type="HBoxContainer" parent="Control/MarginContainer/HBox1"]
+margin_right = 644.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="lifeRect" type="TextureRect" parent="Control/MarginContainer/HBox1/Hbox2"]
+margin_right = 212.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="lifeCountLabel" type="Label" parent="Control/MarginContainer/HBox1/Hbox2/lifeRect"]
+margin_left = 71.7913
+margin_top = 1.32748
+margin_right = 136.791
+margin_bottom = 40.3275
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="tucaRect" type="TextureRect" parent="Control/MarginContainer/HBox1/Hbox2"]
+margin_left = 216.0
+margin_right = 428.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="tucaCountLab" type="Label" parent="Control/MarginContainer/HBox1/Hbox2/tucaRect"]
+anchor_left = 0.408
+anchor_right = 0.408
+margin_left = 35.5686
+margin_top = 4.00002
+margin_right = 60.5686
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="coinRect" type="TextureRect" parent="Control/MarginContainer/HBox1/Hbox2"]
+margin_left = 432.0
+margin_right = 644.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="coinCountLabel" type="Label" parent="Control/MarginContainer/HBox1/Hbox2/coinRect"]
+anchor_left = 0.152
+anchor_right = 0.152
+margin_left = 52.56
+margin_right = 163.56
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.3
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "0"
+align = 2
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Hbox3" type="HBoxContainer" parent="Control/MarginContainer/HBox1"]
+margin_left = 648.0
+margin_right = 841.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="AMMOlaber" type="Label" parent="Control/MarginContainer/HBox1/Hbox3"]
+margin_right = 97.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "AMMO"
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AMMOcount" type="Label" parent="Control/MarginContainer/HBox1/Hbox3"]
+margin_left = 101.0
+margin_right = 193.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.3
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HBox1"]
+margin_left = 845.0
+margin_right = 1007.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Zadriel" type="TextureRect" parent="Control"]
+margin_left = 38.4474
+margin_top = 73.9803
+margin_right = 101.447
+margin_bottom = 133.98
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Zadriel_life" type="Label" parent="Control"]
+margin_left = 131.433
+margin_top = 78.6032
+margin_right = 188.433
+margin_bottom = 125.603
+custom_fonts/font = SubResource( 5 )
+text = "100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Zjaique" type="TextureRect" parent="Control"]
+margin_left = 31.304
+margin_top = 156.525
+margin_right = 94.304
+margin_bottom = 216.525
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Zjaique_life" type="Label" parent="Control"]
+margin_left = 130.64
+margin_top = 169.879
+margin_right = 187.64
+margin_bottom = 216.879
+custom_fonts/font = SubResource( 5 )
+text = "100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

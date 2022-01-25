@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/efecto acido.mp3-86f2c72cc196bf675f10082c42abf72a.mp3str"
+
+[deps]
+
+source_file="res://levels/level_pedo/assets/Audios/efecto acido.mp3"
+dest_files=[ "res://.import/efecto acido.mp3-86f2c72cc196bf675f10082c42abf72a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

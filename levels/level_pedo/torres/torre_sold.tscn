@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/level_pedo/torres/torre.tscn" type="PackedScene" id=1]
+
+[node name="torre_sold" instance=ExtResource( 1 )]
+attackType = "sold"

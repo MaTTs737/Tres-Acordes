@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pres_babies.mp3-a80e535260ad6ef2eba4f7b97e4329c0.mp3str"
+
+[deps]
+
+source_file="res://levels/level_babies/assets/audios/pres_babies.mp3"
+dest_files=[ "res://.import/pres_babies.mp3-a80e535260ad6ef2eba4f7b97e4329c0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/segunda oleada.mp3-cd43e3b00bc06b609c03ded769ba096f.mp3str"
+
+[deps]
+
+source_file="res://levels/level_pedo/assets/Audios/segunda oleada.mp3"
+dest_files=[ "res://.import/segunda oleada.mp3-cd43e3b00bc06b609c03ded769ba096f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

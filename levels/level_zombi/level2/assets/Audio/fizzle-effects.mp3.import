@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fizzle-effects.mp3-1a1221bf8cb2a65803a6e9b25e922f3c.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level2/assets/Audio/fizzle-effects.mp3"
+dest_files=[ "res://.import/fizzle-effects.mp3-1a1221bf8cb2a65803a6e9b25e922f3c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

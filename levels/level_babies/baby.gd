@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 onready var spr = $spr
 onready var anim = $AnimationPlayer
+onready var audio = $hitAP
 
 signal hit
 
@@ -22,6 +23,7 @@ func _process(delta):
 		elif !spr.flip_h: anim.play("move_right")
 
 func get_hit():
+	audio.play()
 	dead = true
 	emit_signal("hit")
 	anim.play("hit")

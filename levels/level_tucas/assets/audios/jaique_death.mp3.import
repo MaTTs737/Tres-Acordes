@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jaique_death.mp3-e4fc7f5843817e64eee123fadae0d7cb.mp3str"
+
+[deps]
+
+source_file="res://levels/level_tucas/assets/audios/jaique_death.mp3"
+dest_files=[ "res://.import/jaique_death.mp3-e4fc7f5843817e64eee123fadae0d7cb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

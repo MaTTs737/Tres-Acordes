@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The Entertainer.mp3-ae1ee2b80c9b30ad1944ec4375b5b26e.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level 1/General Assets/sound/The Entertainer.mp3"
+dest_files=[ "res://.import/The Entertainer.mp3-ae1ee2b80c9b30ad1944ec4375b5b26e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

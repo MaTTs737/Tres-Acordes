@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Zombie Shooter Soundtrack - Action 12.mp3-0aa24d38e62e379917dfd5c2b90ddbc1.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level2/assets/Audio/Soundtrack/Zombie Shooter Soundtrack - Action 12.mp3"
+dest_files=[ "res://.import/Zombie Shooter Soundtrack - Action 12.mp3-0aa24d38e62e379917dfd5c2b90ddbc1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

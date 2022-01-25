@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_firefox/level_firefox_scenes.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_firefox/cutscenes/intro.tscn" type="PackedScene" id=2]
+
+[node name="level_firefox_scenes" type="Node"]
+script = ExtResource( 1 )
+
+[node name="intro" parent="." instance=ExtResource( 2 )]
+
+[connection signal="change_level" from="intro" to="intro" method="_on_intro_change_level"]
+[connection signal="finished" from="intro" to="intro" method="_on_intro_finished"]

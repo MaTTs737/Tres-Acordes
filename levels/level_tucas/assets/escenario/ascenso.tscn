@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://levels/level_tucas/PathFollow2D.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_tucas/assets/escenario/ascenso.gd" type="Script" id=2]
+[ext_resource path="res://levels/level_tucas/assets/escenario/Position2D.gd" type="Script" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 6719.36, 2608.66, 0, 0, 0, 0, 6719.68, 2157.86, 0, 0, 0, 0, 6526.91, 2127.62, 0, 0, 0, 0, 5913.33, 2125.1, 0, 0, 0, 0, 5883.09, 2091.08, 0, 0, 0, 0, 5880.3, 2012.85, 0, 0, 0, 0, 6019.67, 1818.55 )
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.09032
+
+[node name="ascenso" type="Path2D"]
+position = Vector2( -5747.38, -1935.14 )
+curve = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 6719.36, 2608.66 )
+rotation = -1.5703
+loop = false
+script = ExtResource( 1 )
+speed = 9
+
+[node name="Position2D" type="Area2D" parent="PathFollow2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Position2D"]
+position = Vector2( 0.415832, -0.843193 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="PathFollow2D/Position2D" to="PathFollow2D/Position2D" method="_on_Position2D_area_entered"]
+[connection signal="area_entered" from="PathFollow2D/Position2D" to="." method="_on_Position2D_area_entered"]
+[connection signal="body_entered" from="PathFollow2D/Position2D" to="PathFollow2D/Position2D" method="_on_Position2D_body_entered"]
+[connection signal="body_entered" from="PathFollow2D/Position2D" to="." method="_on_Position2D_body_entered"]

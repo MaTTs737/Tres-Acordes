@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Carga-pistola.mp3-ab7d4cdc1b1d15eaaf22993cf532172e.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level2/assets/Carga-pistola.mp3"
+dest_files=[ "res://.import/Carga-pistola.mp3-ab7d4cdc1b1d15eaaf22993cf532172e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

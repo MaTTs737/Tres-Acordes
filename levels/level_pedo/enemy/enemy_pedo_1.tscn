@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_pedo/enemy/enemy_pedo_1.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 23.6874, 391.625, 0, 0, 0, 0, 304.363, 395.293, 0, 0, 0, 0, 306.247, 69.9729, 0, 0, 0, 0, 525.502, 72.3019, 0, 0, 0, 0, 532.822, 701.841, 0, 0, 0, 0, 748.943, 701.841, 0, 0, 0, 0, 774.041, 71.7263, 0, 0, 0, 0, 972.036, 78.6506, 0, 0, 0, 0, 980.402, 697.687, 0, 0, 0, 0, 1195.13, 701.841, 0, 0, 0, 0, 1199.31, 86.9599, 0, 0, 0, 0, 1423.8, 80.0355, 0, 0, 0, 0, 1422.51, 386.561, 0, 0, 0, 0, 1607.05, 384.241 )
+}
+
+[node name="enemy_pedo_1" type="Path2D"]
+position = Vector2( -0.100476, -14.9739 )
+scale = Vector2( 1.01426, 1.02119 )
+curve = SubResource( 1 )
+script = ExtResource( 1 )

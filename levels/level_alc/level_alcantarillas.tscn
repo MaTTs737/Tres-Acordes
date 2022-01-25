@@ -15,78 +15,80 @@ extents = Vector2( 8547.75, 10 )
 [node name="alc_water" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( -64.9448, 638.681 )
 rotation = 1.5708
+frame = 0
 playing = true
 
 [node name="alc_water2" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( 1290.48, 642.42 )
 rotation = 1.5708
+frame = 0
 playing = true
 
 [node name="alc_water3" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( 2593.78, 672.622 )
 rotation = 1.5708
-frame = 1
+frame = 5
 playing = true
 
 [node name="alc_water4" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( 3926.58, 665.047 )
 rotation = 1.5708
-frame = 1
+frame = 5
 playing = true
 
 [node name="alc_water5" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( 5229.87, 661.308 )
 rotation = 1.5708
-frame = 0
+frame = 4
 playing = true
 
 [node name="alc_water6" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( 6562.67, 653.734 )
 rotation = 1.5708
-frame = 0
+frame = 4
 playing = true
 
 [node name="alc_water13" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( 7882.13, 681.819 )
 rotation = 1.5708
-frame = 0
+frame = 4
 playing = true
 
 [node name="alc_water7" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( -2719.83, 661.308 )
 rotation = 1.5708
-frame = 0
+frame = 4
 playing = true
 
 [node name="alc_water8" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( -1387.03, 653.734 )
 rotation = 1.5708
-frame = 0
+frame = 4
 playing = true
 
 [node name="alc_water9" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( -5285.07, 686.707 )
 rotation = 1.5708
-frame = 0
+frame = 4
 playing = true
 
 [node name="alc_water10" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( -3952.27, 679.132 )
 rotation = 1.5708
-frame = 0
+frame = 4
 playing = true
 
 [node name="alc_water11" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( 750.655, 677.157 )
 rotation = 1.5708
 scale = Vector2( 1, 12 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="alc_water12" parent="alcantarillas" instance=ExtResource( 1 )]
 position = Vector2( -6586.27, 679.132 )
 rotation = 1.5708
-frame = 5
+frame = 3
 playing = true
 
 [node name="techo" type="Area2D" parent="alcantarillas"]

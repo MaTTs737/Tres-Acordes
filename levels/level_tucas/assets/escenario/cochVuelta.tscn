@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://levels/level_tucas/assets/escenario/ascenso.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 5839.48, 2006.77, 0, 0, 0, 0, 6292.51, 2099.29, 0, 0, 0, 0, 6366.67, 2219.3, 0, 0, 0, 0, 6406.93, 2328.2, 0, 0, 0, 0, 6416.49, 2463.92, 0, 0, 0, 0, 6408.49, 2560.41, 0, 0, 0, 0, 6442.99, 2651.15, 0, 0, 0, 0, 6528.42, 2687.56, 0, 0, 0, 0, 6648.55, 2707.16 )
+}
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Path2D
+
+func _on_Position2D_body_entered(body):
+	if body.is_in_group(\"players\"):
+		$PathFollow2D.run()
+
+
+
+func _on_Position2D_area_entered(area):
+	if area.is_in_group(\"players\"):
+		$PathFollow2D.run()
+"
+
+[node name="cochVuelta" instance=ExtResource( 1 )]
+position = Vector2( -5834.54, -1910.91 )
+scale = Vector2( 1, 0.953442 )
+curve = SubResource( 1 )
+script = SubResource( 2 )
+
+[node name="PathFollow2D" parent="." index="0"]
+position = Vector2( 5839.48, 2006.77 )
+rotation = 0.201479

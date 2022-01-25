@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_zombi/level 3/assets/Lights/light.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 91.8153
+
+[node name="mira_pistola_linterna" type="Area2D" groups=[
+"light",
+]]
+position = Vector2( 510.452, 383.689 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"light",
+]]
+shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -0.936477, 2.67029e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )

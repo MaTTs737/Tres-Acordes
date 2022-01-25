@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jaique_fuma.mp3-2fa9db232f6da1749187e43d0ce934dc.mp3str"
+
+[deps]
+
+source_file="res://levels/level_tucas/assets/audios/jaique_fuma.mp3"
+dest_files=[ "res://.import/jaique_fuma.mp3-2fa9db232f6da1749187e43d0ce934dc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/edu_hurt.mp3-095ab3fb55e0bc7fd9bd77f8e90daede.mp3str"
+
+[deps]
+
+source_file="res://levels/level_tucas/assets/audios/edu_hurt.mp3"
+dest_files=[ "res://.import/edu_hurt.mp3-095ab3fb55e0bc7fd9bd77f8e90daede.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

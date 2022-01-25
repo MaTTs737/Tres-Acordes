@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/baby_hurt.mp3-5487871ab912cbeb6fdf93b87e7edd38.mp3str"
+
+[deps]
+
+source_file="res://levels/level_babies/assets/audios/baby_hurt.mp3"
+dest_files=[ "res://.import/baby_hurt.mp3-5487871ab912cbeb6fdf93b87e7edd38.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

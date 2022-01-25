@@ -1,0 +1,218 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://levels/level_zombi/level2/level_zombis_policia_2.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_zombi/level2/enemies/Zadriel/Z_adriel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/pngs/elementos/mira_2.png" type="Texture" id=3]
+[ext_resource path="res://levels/level_zombi/level2/assets/Background/background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/level_zombi/level2/HUD&Camera/HUD_zombie.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/level_zombi/level2/assets/Background/mesa_levelZ.png" type="Texture" id=6]
+[ext_resource path="res://levels/level_zombi/level2/assets/Camera2D_zombie.tscn" type="PackedScene" id=7]
+[ext_resource path="res://HUD/winLoseHandler.tscn" type="PackedScene" id=8]
+[ext_resource path="res://levels/level_zombi/level2/enemies/Zjaique/Z_jaique.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Kenney Thick.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://levels/level_zombi/level2/assets/Animations/hurt_anim.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/level_zombi/level2/assets/Audio/Empty gun.mp3" type="AudioStream" id=12]
+[ext_resource path="res://levels/level_zombi/level2/assets/Audio/Soundtrack/Zombie Shooter Soundtrack - Action 12.mp3" type="AudioStream" id=13]
+[ext_resource path="res://levels/level_zombi/level2/assets/Audio/Carga-pistola.mp3" type="AudioStream" id=14]
+[ext_resource path="res://levels/level_zombi/level 3/assets/Lights/light.png" type="Texture" id=15]
+[ext_resource path="res://levels/level_zombi/level2/assets/Audio/fizzle-effects.mp3" type="AudioStream" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 11
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=2]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 3, 3.1, 3.2, 3.3, 3.4, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("mira_pistola/Light2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3.7, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Soundtrack:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("cortocircuito:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="level_zombi_policia_2" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 222.498 ],
+"_edit_lock_": true
+}
+level_name = "skill"
+
+[node name="background" parent="." instance=ExtResource( 4 )]
+position = Vector2( 511.563, 380.934 )
+
+[node name="HUD_zombie" parent="." instance=ExtResource( 5 )]
+
+[node name="Control" parent="HUD_zombie" index="0"]
+mouse_filter = 2
+
+[node name="table" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 517.501, 1145.34 )
+scale = Vector2( 1.0102, 1.01198 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="table"]
+margin_left = -397.0
+margin_top = 141.0
+margin_right = 117.0
+margin_bottom = 376.0
+custom_fonts/font = SubResource( 1 )
+text = "
+
+Manten presionada la tecla W para asomarte
+
+Click izquierdo para disparar
+
+Solo tienes 8 balas en el cargador, 
+presiona R cuando se acaben para recargar
+
+Cuidado con los ataques de los enemigos, mantente agachado
+ para evadirlos.
+
+No seas cagon."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Z_jaique" parent="." instance=ExtResource( 9 )]
+position = Vector2( 889.508, 697.227 )
+
+[node name="Position_Zjaique_down" parent="Z_jaique" index="5"]
+position = Vector2( 511.821, 658.469 )
+
+[node name="Z_adriel" parent="." instance=ExtResource( 2 )]
+position = Vector2( 733.692, 335.024 )
+
+[node name="mira_pistola" type="Area2D" parent="."]
+position = Vector2( 193.963, 554.913 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="mira_pistola"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mira_pistola"]
+
+[node name="Light2D" type="Light2D" parent="mira_pistola"]
+scale = Vector2( 0.4, 0.4 )
+enabled = false
+texture = ExtResource( 15 )
+energy = 0.6
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Position_Zadriel1" type="Position2D" parent="."]
+position = Vector2( 446.987, 334.701 )
+
+[node name="Position_Zadriel2" type="Position2D" parent="."]
+position = Vector2( 610.378, 327.245 )
+
+[node name="Position_Zadriel3" type="Position2D" parent="."]
+position = Vector2( 734.636, 335.968 )
+
+[node name="ColorRect" parent="." instance=ExtResource( 11 )]
+visible = false
+anchor_right = 0.0
+margin_right = 1024.0
+margin_bottom = 763.0
+
+[node name="Camera2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3.31354, 758.445 )
+anchor_mode = 0
+
+[node name="Timer_shoot" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Timer_reload" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_cagon" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="winLoseHandler" parent="." instance=ExtResource( 8 )]
+pause_mode = 2
+
+[node name="Timer_ball" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="empty_gun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
+
+[node name="carga_pistola" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = 24.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="cortocircuito" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[node name="get_creepy" type="AnimationPlayer" parent="."]
+anims/get_creepy = SubResource( 2 )
+
+[connection signal="input_event" from="background/door" to="." method="_on_door_input_event"]
+[connection signal="is_hurt" from="Z_jaique" to="Z_adriel" method="_on_Z_jaique_is_hurt"]
+[connection signal="timeout" from="Z_adriel/Timer_Zadriel" to="." method="_on_Timer_Zadriel_timeout"]
+[connection signal="timeout" from="Timer_shoot" to="." method="_on_Timer_shoot_timeout"]
+[connection signal="timeout" from="Timer_reload" to="." method="_on_Timer_reload_timeout"]
+[connection signal="timeout" from="Timer_cagon" to="." method="_on_Timer_cagon_timeout"]
+[connection signal="timeout" from="Timer_ball" to="." method="_on_Timer_ball_timeout"]
+
+[editable path="background"]
+[editable path="HUD_zombie"]
+[editable path="Z_jaique"]
+[editable path="Z_adriel"]
+[editable path="ColorRect"]
+[editable path="Camera2D"]

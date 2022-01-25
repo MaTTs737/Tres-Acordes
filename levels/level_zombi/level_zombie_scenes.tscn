@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_zombi/Cutscenes/Intro.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/level_zombi/level_zombie_scenes.gd" type="Script" id=2]
+
+[node name="level_zombie_scenes" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Intro" parent="." instance=ExtResource( 1 )]

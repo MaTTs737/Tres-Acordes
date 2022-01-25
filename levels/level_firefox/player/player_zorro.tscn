@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/pngs/personajes/zorro de fuego/zorrodefuego.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+export var normal_speed = Vector2 (400,400)
+var speed = normal_speed
+var acelerado = false
+
+func _physics_process(delta: float) -> void:
+	var direction = 1
+	rotation_degrees = 10
+	if Input.is_action_pressed(\"ui_up\"):
+		direction = -1
+		rotation_degrees = -10
+	move_and_slide(calculate_speed(speed,direction))
+
+
+func calculate_speed (speed: Vector2, direction: int) -> Vector2:
+	speed.y = speed.y * direction
+	return speed
+
+func acelerar () -> void:
+	speed = speed*1.5
+	if $Timer.is_stopped():
+		$Timer.start()
+	else:
+		$Timer.wait_time += 5
+
+func _on_Timer_timeout() -> void:
+	speed = normal_speed
+	acelerado = false
+"
+
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"player",
+]]
+position = Vector2( 30.4556, 417.565 )
+collision_layer = 64
+script = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 62.1276, -1.55573 )
+scale = Vector2( 0.361487, 0.315861 )
+texture = ExtResource( 1 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 10.1164, 8.10715 )
+scale = Vector2( 0.942567, 0.893821 )
+polygon = PoolVector2Array( -26.0905, 3.02649, -18.6659, 4.08716, -17.6052, 1.25873, 3.60799, -0.509033, 31.1852, 5.50137, 43.206, 5.1478, 42.1453, -0.155487, 38.6098, -1.21616, 39.6704, -7.93365, 52.3984, -31.9753, 58.4088, -34.4502, 61.9443, -33.3895, 69.0154, -47.5316, 67.6012, -55.3098, 72.1973, -64.5022, 93.7641, -65.2093, 92.3499, -59.906, 93.057, -54.2492, 93.057, -51.0672, 99.421, -48.2387, 96.9461, -41.1677, 89.5215, -41.1677, 89.5215, -34.0966, 91.2892, -29.854, 72.5509, -30.9146, 69.3689, -37.6321, 64.4192, -29.1469, 66.187, -22.4294, 64.7727, -10.7621, 90.2286, -22.4294, 110.028, -24.5507, 113.563, -25.6113, 117.806, -20.6616, 126.645, -24.9042, 126.645, -22.0758, 121.695, -16.4189, 123.109, -7.58011, 123.109, -2.63037, 129.473, -0.509033, 128.412, 5.50137, 107.906, 4.08716, 98.3603, 10.0976, 104.371, 11.5118, 108.967, 19.6435, 107.906, 29.543, 102.249, 29.543, 102.957, 20.3506, 89.5215, 19.2899, 88.1073, 23.179, 94.1177, 28.1288, 91.2892, 43.6852, 83.8646, 43.6852, 84.2182, 36.9676, 88.1073, 35.1999, 85.2788, 29.1895, 71.8438, 23.8861, 45.6809, 28.1288, 6.78999, 17.1686, -21.4943, 18.9364, -16.191, 14.3402, -20.4336, 12.926, -17.2517, 10.0976, -24.3227, 9.74402 )
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="hurtbox"]
+position = Vector2( 10.1164, 7.92289 )
+scale = Vector2( 0.942567, 0.896234 )
+polygon = PoolVector2Array( -26.0905, 3.02649, -18.6659, 4.08716, -17.6052, 1.25873, 3.60799, -0.509033, 31.1852, 5.50137, 43.206, 5.1478, 42.1453, -0.155487, 38.6098, -1.21616, 39.6704, -7.93365, 52.3984, -31.9753, 58.4088, -34.4502, 61.9443, -33.3895, 69.0154, -47.5316, 67.6012, -55.3098, 72.1973, -64.5022, 93.7641, -65.2093, 92.3499, -59.906, 93.057, -54.2492, 93.057, -51.0672, 99.421, -48.2387, 96.9461, -41.1677, 89.5215, -41.1677, 89.5215, -34.0966, 91.2892, -29.854, 72.5509, -30.9146, 69.3689, -37.6321, 64.4192, -29.1469, 66.187, -22.4294, 64.7727, -10.7621, 90.2286, -22.4294, 110.028, -24.5507, 113.563, -25.6113, 117.806, -20.6616, 126.645, -24.9042, 126.645, -22.0758, 121.695, -16.4189, 123.109, -7.58011, 123.109, -2.63037, 129.473, -0.509033, 128.412, 5.50137, 107.906, 4.08716, 98.3603, 10.0976, 104.371, 11.5118, 108.967, 19.6435, 107.906, 29.543, 102.249, 29.543, 102.957, 20.3506, 89.5215, 19.2899, 88.1073, 23.179, 94.1177, 28.1288, 91.2892, 43.6852, 83.8646, 43.6852, 84.2182, 36.9676, 88.1073, 35.1999, 85.2788, 29.1895, 71.8438, 23.8861, 45.6809, 28.1288, 6.78999, 17.1686, -21.4943, 18.9364, -16.191, 14.3402, -20.4336, 12.926, -17.2517, 10.0976, -24.3227, 9.74402 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/open_door.mp3-d2626e50c13d448558089e4c29d7c91f.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level2/assets/Audio/open_door.mp3"
+dest_files=[ "res://.import/open_door.mp3-d2626e50c13d448558089e4c29d7c91f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/no tiren.mp3-98e3d8b2e459955ba3ede03c99adf507.mp3str"
+
+[deps]
+
+source_file="res://levels/level_zombi/level 1/General Assets/sound/no tiren.mp3"
+dest_files=[ "res://.import/no tiren.mp3-98e3d8b2e459955ba3ede03c99adf507.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

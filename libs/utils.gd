@@ -14,4 +14,7 @@ func choise_list(list):
 	randomize()
 	var random_index = randi()% list.size()
 	return list[random_index]
-	
+
+func _get_level():
+	var root = get_tree().get_root()
+	return root.get_child(root.get_child_count()-1).get_child(0)

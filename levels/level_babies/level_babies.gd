@@ -7,16 +7,10 @@ onready var paleta = $YSort/paleta
 var babies_hit = 0
 
 const BB = preload("res://levels/level_babies/baby.tscn") 
-
+	
 func _process(delta):
 	if babies_hit > 3:
 		$game/Control.show()
-
-func _on_Timer_timeout():
-	pantalla.hide()
-	fondo.show()
-	paleta.show()
-	$spawnTimer.start()
 
 func spawn_baby():
 	var baby = BB.instance()
@@ -32,3 +26,11 @@ func baby_hit():
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://HUD/menu.tscn")
+
+
+func _on_presAP_finished():
+	$backgroundAP.play()
+	pantalla.hide()
+	fondo.show()
+	paleta.show()
+	$spawnTimer.start()

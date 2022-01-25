@@ -338,8 +338,8 @@ tracks/3/keys = {
 position = Vector2( 478.877, 336.909 )
 collision_layer = 32
 script = ExtResource( 2 )
-MAX_SPEED = 70
-ACCELERATION = 50
+MAX_SPEED = 100
+ACCELERATION = 200
 FRICTION = 200
 
 [node name="Sprite" type="Sprite" parent="."]

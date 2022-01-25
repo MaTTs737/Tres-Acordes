@@ -1,0 +1,179 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://pausaScreen.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_medio_p.png" type="Texture" id=2]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_chico_p.png" type="Texture" id=3]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_medio_h.png" type="Texture" id=4]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_grande_n.png" type="Texture" id=5]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_chico_d.png" type="Texture" id=6]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_medio_n.png" type="Texture" id=7]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_chico_n.png" type="Texture" id=8]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_chico_h.png" type="Texture" id=9]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_grande_h.png" type="Texture" id=10]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_grande_d.png" type="Texture" id=11]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_medio_d.png" type="Texture" id=12]
+[ext_resource path="res://levels/level_pedo/assets/png/botones/boton_grande_p.png" type="Texture" id=13]
+[ext_resource path="res://levels/level_pedo/assets/png/menu_fondo.png" type="Texture" id=14]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/boton_chico_n.png-33c31dd9a5cef9fec644002f9efb4c39.stex"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/boton_chico_p.png-d2bba75ace4dad37e222903c51a8f8f0.stex"
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/boton_chico_h.png-25ed9b6ae93b283056abf64fb2095eec.stex"
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/boton_chico_d.png-28811cf1c6bc1c97e4f8a9aa9b436cab.stex"
+
+[node name="pausaScreen" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 514.048, 405.695 )
+texture = ExtResource( 14 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.885836
+margin_top = 2.94174
+margin_right = 0.885864
+margin_bottom = 2.94177
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="salirBut" type="TextureButton" parent="Control"]
+margin_left = 463.599
+margin_top = 561.728
+margin_right = 574.599
+margin_bottom = 591.728
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="salirLab" type="Label" parent="Control/salirBut"]
+margin_left = 3.59183
+margin_top = -1.67053
+margin_right = 108.592
+margin_bottom = 30.3295
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SALIR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="TextureButton" parent="Control"]
+margin_left = 463.599
+margin_top = 516.371
+margin_right = 574.599
+margin_bottom = 546.371
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+texture_hover = SubResource( 3 )
+texture_disabled = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menuLab" type="Label" parent="Control/menu"]
+margin_left = -4.0
+margin_top = 9.0
+margin_right = 111.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "AL MENU"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volverBut" type="TextureButton" parent="Control"]
+margin_left = 411.439
+margin_top = 239.317
+margin_right = 607.439
+margin_bottom = 276.317
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volverLab" type="Label" parent="Control/volverBut"]
+margin_left = 38.0
+margin_top = 11.0
+margin_right = 152.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "VOLVER AL JUEGO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resetBut" type="TextureButton" parent="Control"]
+margin_left = 438.727
+margin_top = 450.397
+margin_right = 597.727
+margin_bottom = 484.397
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
+
+[node name="resetLab" type="Label" parent="Control/resetBut"]
+anchor_left = -0.333
+anchor_top = -0.593
+anchor_right = -0.333
+anchor_bottom = -0.593
+margin_left = 82.947
+margin_top = 30.162
+margin_right = 188.947
+margin_bottom = 54.162
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "REINICIAR NIVEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volumeBut" type="TextureButton" parent="Control"]
+margin_left = 428.436
+margin_top = 294.885
+margin_right = 587.436
+margin_bottom = 328.885
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volumeLab" type="Label" parent="Control/volumeBut"]
+margin_left = 30.119
+margin_top = 0.855194
+margin_right = 135.119
+margin_bottom = 32.8552
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "VOLUMEN"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Control/salirBut" to="." method="_on_salirBut_pressed"]
+[connection signal="pressed" from="Control/menu" to="." method="_on_salirBut_pressed"]
+[connection signal="pressed" from="Control/volverBut" to="." method="_on_volverBut_pressed"]
+[connection signal="pressed" from="Control/resetBut" to="." method="_on_resetBut_pressed"]

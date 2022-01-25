@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/level_pedo/enemy/enemy_pedo_1_follow.gd" type="Script" id=1]
+
+[node name="enemy_pedo_1_follow" type="PathFollow2D"]
+rotation = -0.0056148
+loop = false
+script = ExtResource( 1 )
